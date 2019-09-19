@@ -15,7 +15,6 @@ redisClient.get('myname', (err, val) => {
         console.error(err)
         return
     }
-    console.log('val is ', val)
 
     //退出
     redisClient.quit()

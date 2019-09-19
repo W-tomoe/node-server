@@ -6,6 +6,7 @@ const login = (username, password) => {
     `
 
     return exec(sql).then(rows => {
+        console.log(rows,'rows')
         return rows[0] || {}
     })
 }

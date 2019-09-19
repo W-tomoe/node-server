@@ -18,7 +18,6 @@ con.query(sql, (err, result) => {
     if(err) {
         console.error(err)
     }
-    console.log(result)
 })
 
 //关闭链接
