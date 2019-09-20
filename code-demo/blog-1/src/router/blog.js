@@ -101,8 +101,6 @@ const handleBlogRouter = (req, res) => {
             return loginCheckResult
         }
 
-        console.log(req.body,'req.body')
-
         const author =  req.session.username
         const result = delBlog(id, author)
 

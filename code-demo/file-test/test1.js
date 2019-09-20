@@ -3,7 +3,7 @@ const path = require('path')
 
 const fileName = path.resolve(__dirname,'data.txt')
 
-//读取文件内容
+// 读取文件内容
 // fs.readFile(fileName, (err, data ) => {
 //     if(err) {
 //         console.error(err)
@@ -13,7 +13,7 @@ const fileName = path.resolve(__dirname,'data.txt')
 //     console.log(data.toString())
 // })
 
-//写入文件
+// 写入文件
 // const content ='这是新写入的内容\n'
 // const opt = {
 //     flag: 'a'
@@ -24,7 +24,7 @@ const fileName = path.resolve(__dirname,'data.txt')
 //     }
 // })
 
-//判断文件是否存在
+// 判断文件是否存在
 fs.exists(fileName, (exist) => {
     console.log(exist)
 })
