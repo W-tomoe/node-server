@@ -13,9 +13,7 @@ const {
     ErrorModel
 } = require('../model/resModel')
 
-const {
-    loginCheck
-} = require('../middleware/loginCheck')
+const loginCheck = require('../middleware/loginCheck')
 
 
 router.get('/list', loginCheck, function (req, res, next) {
@@ -23,8 +21,9 @@ router.get('/list', loginCheck, function (req, res, next) {
     const keyword = req.query.keyword || ''
 
     if (req.query.isadmin) {
-        
+        console.log('is admin')
         if (req.session.username == null) {
+            console.log('is admin, but no login')
             //未登录
             res.json(new ErrorModel('未登录'))
             return 

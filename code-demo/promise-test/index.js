@@ -52,7 +52,9 @@ function getFileContent(fileName) {
     return promise
 }
 
-getFileContent('a.json').then(aData => {
+
+// promise 语法
+/* getFileContent('a.json').then(aData => {
     console.log('a Data', aData)
     return getFileContent(aData.next)
 }).then(bData => {
@@ -60,6 +62,40 @@ getFileContent('a.json').then(aData => {
     return getFileContent(bData.next)
 }).then(cData => {
     console.log('c Data', cData)
-})
+}) */
 
 
+// async await语法
+async function readFileData() {
+    // 同步写法
+    try{
+        const aData = await getFileContent('a.json')
+        console.log(aData,'a Data')
+        const bData = await getFileContent(aData.next)
+        console.log(bData,'b Data')
+        const cData = await getFileContent(bData.next)
+        console.log(cData,'c Data')
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+readFileData()
+
+/* async function readAData() {
+    const aData = await getFileContent('a.json')
+    return aData
+}
+
+async function test() {
+    const aData = await readAData()
+    console.log(aData)
+}
+test() */
+
+
+// async await要点
+// 1. await 后面可以追加 promise 对象
+// 2. await 必须宝贵在 async 函数里面
+// 3. async 函数执行返回的也是一个 promise 对象
+// 4. try-catch 截获 promise 中 reject 的值

@@ -2,7 +2,9 @@ const {
     ErrorModel
 } = require('../model/resModel')
 
-const loginCheck = (req, res, next) => {
+
+
+module.exports = (req, res, next) => {
     if (req.session.username) {
         next()
         return
@@ -11,8 +13,4 @@ const loginCheck = (req, res, next) => {
     res.json(
         new ErrorModel('未登录')
     )
-}
-
-module.exports = {
-    loginCheck
 }
